@@ -9,7 +9,9 @@ After making changes to the README and .gitignore files, I staged, committed, an
 
 Next, I created a branch and created an assignment folder with a README file. After committing these changes
 I created a screenshots folder and updated the README file. I committed these changes before going on to 
-create a requirements file and amending the README file to explain its use. After the final commit I 
+create a requirements file and amending the README file to explain its use. After the final commit I pushed
+the branch to the remote repository and then merged the branch to the main. Finally, I pulled locally and did
+a final update on the README file and in the screenshots folder and a final commit and push. 
 
 
 
@@ -25,6 +27,11 @@ a list of what each one is_
 * screenshot7: Use of git commit and status in branch
 * screenshot8: Creating Screenshots folder and 2nd commit in branch
 * screenshot9: Creating requirements file and updating README and screenshots
+* screenshot10: Use of git add, commit, push, and status
+* screenshot11: Use of git push of branch to remote repository
+* screenshot12: Creating pull request
+* screenshot13: Merge of branch with main
+* screenshot14: Use of git pull to update local repository
  
 
 
@@ -43,7 +50,7 @@ removing the comment so that it ignores the _idea_ folder.
 
 ### Requirements.txt
 
-The requirements.txt file is used to provide a list of external packages and their versions
+The **requirements.txt** file is used to provide a list of external packages and their versions
 required for a Python project that need to be installed by pip. This ensures that everyone working
 on the same project will install the same packages and be able to work cohesively.
 
