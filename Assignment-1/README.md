@@ -5,7 +5,7 @@ I initially cloned it through PyCharm but when it came time to push the changes 
 to proceed due to an authentication error. To remedy the situation I deleted the local repository and cloned 
 it securely using the SSH url from GitHub. 
 
-After making changes to the README file and .gitignore file I staged, committed, and pushed the changes.
+After making changes to the README and .gitignore files, I staged, committed, and pushed the changes.
 
 Next, I created a branch and created an assignment folder with a README file. After committing these changes
 I created a screenshots folder and updated the README file. I committed these changes before going on to 
@@ -13,11 +13,18 @@ create a requirements file and amending the README file to explain its use. Afte
 
 
 
-_Please find screenshots of the processes I followed for this assignment in the Screenshots folder and below a list of what each one is_
+_Please find screenshots of the processes I followed for this assignment in the Screenshots folder and below 
+a list of what each one is_
 
 * screenshot1: Creation of CFG-Assignments repository
 * screenshot2: Cloning CFG-Assignments repository through terminal
-* screenshot4: Staging, committing, and pushing changes
+* screenshot3: Use of git status
+* screenshot4: Creating commit message
+* screenshot5: Use of git add, commit, and push
+* screenshot6: Creating Assignment1 folder and README file
+* screenshot7: Use of git commit and status in branch
+* screenshot8: Creating Screenshots folder and 2nd commit in branch
+* screenshot9: Creating requirements file and updating README and screenshots
  
 
 
@@ -36,5 +43,7 @@ removing the comment so that it ignores the _idea_ folder.
 
 ### Requirements.txt
 
-
+The requirements.txt file is used to provide a list of external packages and their versions
+required for a Python project that need to be installed by pip. This ensures that everyone working
+on the same project will install the same packages and be able to work cohesively.
 
