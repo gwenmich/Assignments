@@ -31,7 +31,7 @@ def random_game_gen():
         \n{pc_game_info}""")
 
         return pc_suggestion
-        loop_suggestion()
+
 
     elif user_platform.lower() == "web":
         web_games_list = []
@@ -54,25 +54,27 @@ def random_game_gen():
         \n{web_game_info}""")
 
         return web_suggestion
-        loop_suggestion()
+
+    else:
+        return "Invalid platform choice. Please choose between PC and Web."
 
 
 
 def loop_suggestion():
     continuous = True
-
+    random_game_gen()
     while continuous:
         continue_prompt = input("Would you like another suggestion? (Y/N) ")
+
         if continue_prompt.lower() == "y" or continue_prompt.lower() == "yes":
-            random_game_gen()
+            continue
         elif continue_prompt.lower() == "n" or continue_prompt.lower() == "no":
             continuous = False
         else:
             input("I'm sorry I didn't understand that. Try again.")
-    else:
-        return "Thank you for choosing us for your gaming recommendations. Goodbye!"
+
+    return "Thank you for choosing us for your gaming recommendations. Happy gaming!"
 
 
 
-random_game_gen()
-
+loop_suggestion()
