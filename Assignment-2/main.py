@@ -6,9 +6,12 @@ response = requests.get(endpoint)
 database = response.json()
 
 
+results_path = "/Users/gwenmichailidis/CFGdegree/CFG-Assignments/Assignment-2/game_suggestion.txt"
+
+
 def random_game_gen():
-    user_platform = input("Welcome to our Free-to-play Game suggestion app!"
-                          "\nWould you prefer a PC or Web based game suggestion? ")
+    print("Welcome to our Free-to-play Game suggestion app!")
+    user_platform = input("Would you prefer a PC or Web based game suggestion? ")
 
     if user_platform.lower() == "pc":
         pc_games_list = []
@@ -29,6 +32,9 @@ def random_game_gen():
         pc_suggestion = (f"""Based on your platform choice, here is a game that you might enjoy! 
         \n{pc_game} ({pc_game_year}), url: {pc_game_url}
         \n{pc_game_info}""")
+
+        with open(results_path, "a") as results:
+            results.write(pc_suggestion + "\n\n")
 
         return pc_suggestion
 
@@ -53,28 +59,37 @@ def random_game_gen():
         \n{web_game} ({web_game_year}), url: {web_game_url}
         \n{web_game_info}""")
 
+        with open(results_path, "a") as results:
+            results.write(web_suggestion + "\n\n")
+
         return web_suggestion
 
     else:
-        return "Invalid platform choice. Please choose between PC and Web."
+        print("Invalid platform choice. Please choose between PC and Web.")
+        random_game_gen()
 
 
 
 def loop_suggestion():
     continuous = True
+    with open(results_path, "w") as results:
+        results.write("")
     random_game_gen()
+
     while continuous:
         continue_prompt = input("Would you like another suggestion? (Y/N) ")
 
-        if continue_prompt.lower() == "y" or continue_prompt.lower() == "yes":
-            continue
-        elif continue_prompt.lower() == "n" or continue_prompt.lower() == "no":
+        if continue_prompt.lower() == "y":
+            random_game_gen()
+        elif continue_prompt.lower() == "n":
             continuous = False
         else:
-            input("I'm sorry I didn't understand that. Try again.")
+            print("I'm sorry I didn't understand that. Please type Y for yes or N for no.")
+
+    with open(results_path, "a") as results:
+        results.write("Thank you for choosing us for your gaming recommendations. Happy gaming!")
 
     return "Thank you for choosing us for your gaming recommendations. Happy gaming!"
-
 
 
 loop_suggestion()
