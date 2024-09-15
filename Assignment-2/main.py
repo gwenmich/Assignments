@@ -74,13 +74,13 @@ def loop_suggestion():
     continuous = True
     with open(results_path, "w") as results:
         results.write("")
-    random_game_gen()
+    print(random_game_gen())
 
     while continuous:
         continue_prompt = input("Would you like another suggestion? (Y/N) ")
 
         if continue_prompt.lower() == "y":
-            random_game_gen()
+            print(random_game_gen())
         elif continue_prompt.lower() == "n":
             continuous = False
         else:
@@ -92,4 +92,5 @@ def loop_suggestion():
     return "Thank you for choosing us for your gaming recommendations. Happy gaming!"
 
 
-loop_suggestion()
+
+print(loop_suggestion())
