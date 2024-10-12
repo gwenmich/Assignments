@@ -78,7 +78,7 @@ def add_horror_game(title, min_players, max_players, rating, description):
         cur = db_connection.cursor()
         print("Connection to %s DB active" % DATABASE)
 
-        add_query = """
+        add_query = ("""
             INSERT INTO horror_board_games (
                 title,
                 min_players,
@@ -87,25 +87,21 @@ def add_horror_game(title, min_players, max_players, rating, description):
                 description
             )
             VALUES
-            ({title}, {min_players}, {max_players}, {rating}, {description})
-            
-        """.format(title = title,
-                   min_players = min_players,
-                   max_players = max_players,
-                   rating = rating,
-                   description = description)
+            (%s, %s, %s, %s, %s)
+        """)
 
-        cur.execute(add_query)
+        parameters = (title, min_players, max_players, rating, description)
+        cur.execute(add_query, parameters)
         db_connection.commit()
 
         # show the user the updated horror board games list with their input
-        select_query = "SELECT * FROM horror_board_games"
+        select_query = """SELECT * FROM horror_board_games"""
         cur.execute(select_query)
         new_list = cur.fetchall()
+        # print(get_all_horror_games())
 
         cur.close()
         return new_list
-
 
 
     except Exception:

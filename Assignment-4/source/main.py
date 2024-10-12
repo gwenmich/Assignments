@@ -16,14 +16,14 @@ def get_game_player_num_front_end(player):
 
 
 # Adding a game with user input
-def add_game_front_end(title, min_players, max_players, rating, description):
+def add_game_front_end(user_title, user_min_players, user_max_players, user_rating, user_description):
     endpoint = "http://127.0.0.1:5000/horror-games/add"
     game_data = {
-        "title" : title,
-        "min_players": min_players,
-        "max_players": max_players,
-        "rating": rating,
-        "description": description
+        "title" : user_title,
+        "min_players": user_min_players,
+        "max_players": user_max_players,
+        "rating": user_rating,
+        "description": user_description
     }
     response = requests.post(endpoint, json=game_data)
     result = response.json()
@@ -83,7 +83,9 @@ def run():
             user_rating = float(user_rating)
 
             print("Thank you for your input!")
+            print("---------------------")
             print("Game added to records")
+            print("---------------------")
             print("Here are the updated records:")
             print(add_game_front_end(user_title, user_min_players, user_max_players, user_rating, user_description))
 
@@ -91,7 +93,8 @@ def run():
         except ValueError:
             print("Invalid input!")
 
-
+    else:
+        print("Invalid choice! Please choose between A, B, or C.")
 
 
 
