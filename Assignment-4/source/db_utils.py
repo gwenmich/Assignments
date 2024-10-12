@@ -5,6 +5,7 @@ class DBConnectionError(Exception):
     pass
 
 
+# Connect to board games database
 def connect_to_db():
     connection = mysql.connector.connect(
         host = HOST,
@@ -15,6 +16,8 @@ def connect_to_db():
     )
     return connection
 
+
+# Connect to db to get all horror board games
 def get_all_horror_games():
     db_connection = None
     try:
@@ -38,7 +41,7 @@ def get_all_horror_games():
             print("Connection to DB closed")
 
 
-
+# Connect to db to get board games that can be played with a user-specified number of players
 def get_game_by_num_of_players(player):
     db_connection = None
     try:
@@ -67,7 +70,7 @@ def get_game_by_num_of_players(player):
             print("Closed connection to DB")
 
 
-
+# Connect to db to add a horror board game and return the updated list
 def add_horror_game(title, min_players, max_players, rating, description):
     db_connection = None
     try:
@@ -112,8 +115,6 @@ def add_horror_game(title, min_players, max_players, rating, description):
         if db_connection:
             db_connection.close()
             print("Closed connection to DB")
-
-
 
 
 

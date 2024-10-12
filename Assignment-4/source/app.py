@@ -5,21 +5,20 @@ app = Flask(__name__)
 
 
 # Getting all horror board games
-
 @app.route("/horror-games", methods = ["GET"])
 def get_all_games():
     return jsonify(get_all_horror_games())
 
 
-# Getting board games playable with user-decided number of players
 
+# Getting board games playable with user-decided number of players
 @app.route("/horror-games/players/<int:player>", methods = ["GET"])
 def get_game_player_num(player):
     return jsonify(get_game_by_num_of_players(player))
 
 
-# Adding a horror board game
 
+# Adding a horror board game
 @app.route("/horror-games/add", methods = ["POST"])
 def add_game():
     game_data = request.get_json()

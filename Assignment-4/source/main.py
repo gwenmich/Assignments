@@ -1,15 +1,21 @@
 import requests
 
+
+# Getting all games
 def get_all_games_front_end():
     endpoint = "http://127.0.0.1:5000/horror-games"
     result = requests.get(endpoint).json()
     return result
 
+
+# Getting games with specified number of players by user input
 def get_game_player_num_front_end(player):
     endpoint = f"http://127.0.0.1:5000/horror-games/players/{player}"
     result = requests.get(endpoint).json()
     return result
 
+
+# Adding a game with user input
 def add_game_front_end(title, min_players, max_players, rating, description):
     endpoint = "http://127.0.0.1:5000/horror-games/add"
     game_data = {
@@ -24,6 +30,8 @@ def add_game_front_end(title, min_players, max_players, rating, description):
     return result
 
 
+
+# What runs at the front end to begin with
 def run():
     print("----------------------------------")
     print("Welcome to the Board Games Records")
@@ -45,8 +53,6 @@ def run():
         print(get_all_games_front_end())
 
     elif answer == "B":
-        if get_game_player_num_front_end() is None:
-            print("Unable to retrieve records. Try again later.")
 
         player_num = input("Great! How many players do you want to join the game? ")
 
@@ -69,7 +75,7 @@ def run():
         user_title = input("Title of the game: ")
         user_min_players = input("Minimum number of players that can play: ")
         user_max_players = input("Maximum number of players that can play: ")
-        user_rating = input("Rating of game: ")
+        user_rating = input("Rating of game 1-10: ")
         user_description = input("Short one-sentence description of game: ")
 
         try:
@@ -90,15 +96,5 @@ def run():
 
 
 
-
-
-
-
-
-
-
-
 if __name__ == "__main__":
-    # print(get_all_games_front_end())
-    # print(get_game_player_num_front_end(6))
-    pass
+    run()
