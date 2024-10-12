@@ -20,7 +20,7 @@ def get_game_player_num(player):
 
 # Adding a horror board game
 
-app.route("/horror-games/add", methods = ["POST"])
+@app.route("/horror-games/add", methods = ["POST"])
 def add_game():
     game_data = request.get_json()
     add_game(

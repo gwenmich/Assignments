@@ -21,8 +21,6 @@ def get_all_horror_games():
         db_connection = connect_to_db()
         cur = db_connection.cursor()
         print("Connection to DB: %s active." % DATABASE)
-        print("To celebrate spooky season enjoy playing a horror board game")
-        print("Here is a list of horror board games you might enjoy")
 
         query = """SELECT * FROM horror_board_games"""
         cur.execute(query)
