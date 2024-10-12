@@ -11,4 +11,4 @@ def get_all_games():
 
 if __name__ == "__main__":
     app.run(debug = True)
-    print(get_all_games())
+    get_all_games()
