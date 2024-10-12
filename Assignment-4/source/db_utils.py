@@ -40,12 +40,33 @@ def get_all_horror_games():
             print("Connection to DB closed")
 
 
-#
-# def get_game_by_players(player):
-#
 
+def get_game_by_num_of_players(player):
+    db_connection = None
+    try:
+        db_connection = connect_to_db()
+        cur = db_connection.cursor()
+        print("Connection to %s DB active" % DATABASE)
 
+        player_query = f"""
+            SELECT * 
+            FROM horror_board_games
+            WHERE {player} >= min_players AND {player} <= max_players
+        """
 
+        cur.execute(player_query)
+        result = cur.fetchall()
+
+        cur.close()
+        return result
+
+    except Exception:
+        raise DBConnectionError("Failed to connect to DB")
+
+    finally:
+        if db_connection:
+            db_connection.close()
+            print("Closed connection to DB")
 
 
 
@@ -56,3 +77,4 @@ def get_all_horror_games():
 
 if __name__ == "__main__":
     get_all_horror_games()
+    get_game_by_num_of_players()

@@ -5,8 +5,12 @@ def get_all_games_front_end():
     result = requests.get(endpoint).json()
     return result
 
-
+def get_game_player_num_front_end(player):
+    endpoint = f"http://127.0.0.1:5000/horror-games/players/{player}"
+    result = requests.get(endpoint).json()
+    return result
 
 
 if __name__ == "__main__":
-    print(get_all_games_front_end())
+    # print(get_all_games_front_end())
+    # print(get_game_player_num_front_end(6))
