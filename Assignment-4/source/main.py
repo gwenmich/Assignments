@@ -42,9 +42,8 @@ def run():
     print("A: View all horror board games records")
     print("B: View all horror board games based on the number of players")
     print("C: Add a horror board game to our records")
-    print("D: Add your rating to a horror board game on our records")
 
-    answer = input("What would you like to do: A, B, C ,or D? ").strip().upper()
+    answer = input("What would you like to do: A, B, or C? ").strip().upper()
 
     if answer == "A":
         if get_all_games_front_end() is None:
