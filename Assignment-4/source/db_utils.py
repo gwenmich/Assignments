@@ -70,7 +70,7 @@ def get_game_by_num_of_players(player):
             print("Closed connection to DB")
 
 
-# Connect to db to add a horror board game and return the updated list
+# Connect to db to add a horror board game
 def add_horror_game(title, min_players, max_players, rating, description):
     db_connection = None
     try:
@@ -94,15 +94,8 @@ def add_horror_game(title, min_players, max_players, rating, description):
         cur.execute(add_query, parameters)
         db_connection.commit()
 
-        # show the user the updated horror board games list with their input
-        select_query = """SELECT * FROM horror_board_games"""
-        cur.execute(select_query)
-        new_list = cur.fetchall()
-        # print(get_all_horror_games())
-
         cur.close()
-        return new_list
-
+        return None
 
     except Exception:
         raise DBConnectionError("Failed to connect to DB")

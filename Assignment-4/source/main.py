@@ -86,8 +86,8 @@ def run():
             print("---------------------")
             print("Game added to records")
             print("---------------------")
-            print("Here are the updated records:")
-            print(add_game_front_end(user_title, user_min_players, user_max_players, user_rating, user_description))
+
+            add_game_front_end(user_title, user_min_players, user_max_players, user_rating, user_description)
 
 
         except ValueError:
