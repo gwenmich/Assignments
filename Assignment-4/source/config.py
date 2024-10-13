@@ -1,4 +1,4 @@
-USER = "root"
-PASSWORD = "C48291sql!"
+USER = ""
+PASSWORD = ""
 HOST = "localhost"
 DATABASE = "board_games"
