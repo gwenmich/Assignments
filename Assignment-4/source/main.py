@@ -1,4 +1,5 @@
 import requests
+import json
 
 
 # Getting all games
@@ -16,22 +17,47 @@ def get_game_player_num_front_end(player):
 
 
 # Adding a game with user input
-def add_game_front_end(user_title, user_min_players, user_max_players, user_rating, user_description):
+def add_game_front_end(game_data):
     endpoint = "http://127.0.0.1:5000/horror-games/add"
-    game_data = {
-        "title" : user_title,
-        "min_players": user_min_players,
-        "max_players": user_max_players,
-        "rating": user_rating,
-        "description": user_description
-    }
-    response = requests.post(endpoint, json=game_data)
+    response = requests.post(
+        endpoint,
+        headers={"content-type": "application/json"},
+        data=json.dumps(game_data)
+    )
     result = response.json()
     return result
 
 
+# Prompt user to input game data and create a dictionary
+def collect_game_data():
+    user_title = input("Title of the game: ")
+    user_min_players = input("Minimum number of players that can play: ")
+    user_max_players = input("Maximum number of players that can play: ")
+    user_rating = input("Rating of game 1-10: ")
+    user_description = input("Short one-sentence description of game: ")
 
-# What runs at the front end to begin with
+    try:
+        user_min_players = int(user_min_players)
+        user_max_players = int(user_max_players)
+        user_rating = float(user_rating)
+
+        game_data = {
+            "title": user_title,
+            "min_players": user_min_players,
+            "max_players": user_max_players,
+            "rating": user_rating,
+            "description": user_description
+        }
+
+        return game_data
+
+    except ValueError:
+        print("Invalid input!")
+
+
+
+
+# What runs at the front end to begin with prompting user to choose pathway
 def run():
     print("----------------------------------")
     print("Welcome to the Board Games Records")
@@ -71,27 +97,14 @@ def run():
 
     elif answer == "C":
         print("Great! Please give the details of the game you'd like to add")
-        user_title = input("Title of the game: ")
-        user_min_players = input("Minimum number of players that can play: ")
-        user_max_players = input("Maximum number of players that can play: ")
-        user_rating = input("Rating of game 1-10: ")
-        user_description = input("Short one-sentence description of game: ")
+        game_data = collect_game_data()
 
-        try:
-            user_min_players = int(user_min_players)
-            user_max_players = int(user_max_players)
-            user_rating = float(user_rating)
+        print("Thank you for your input!")
+        print("---------------------")
+        print("Game successfully added to records")
+        print("---------------------")
 
-            print("Thank you for your input!")
-            print("---------------------")
-            print("Game added to records")
-            print("---------------------")
-
-            add_game_front_end(user_title, user_min_players, user_max_players, user_rating, user_description)
-
-
-        except ValueError:
-            print("Invalid input!")
+        print(add_game_front_end(game_data))
 
     else:
         print("Invalid choice! Please choose between A, B, or C.")
