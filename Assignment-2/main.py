@@ -6,7 +6,7 @@ response = requests.get(endpoint)
 database = response.json()
 
 
-results_path = "/Users/gwenmichailidis/CFGdegree/CFG-Assignments/Assignment-2/game_suggestion.txt"
+results_path = "//Assignment-2/game_suggestion.txt"
 
 
 def random_game_gen():

@@ -11,29 +11,7 @@ Next, I created a branch and created an assignment folder with a README file. Af
 I created a screenshots folder and updated the README file. I committed these changes before going on to 
 create a requirements file and amending the README file to explain its use. After the final commit I pushed
 the branch to the remote repository and then merged the branch to the main. Finally, I pulled locally and did
-a final update on the README file and in the screenshots folder and a final commit and push. 
-
-
-
-_Please find screenshots of the processes I followed for this assignment in the Screenshots folder and below 
-a list of what each one is_
-
-* screenshot1: Creation of CFG-Assignments repository
-* screenshot2: Cloning CFG-Assignments repository through terminal
-* screenshot3: Use of git status
-* screenshot4: Creating commit message
-* screenshot5: Use of git add, commit, and push
-* screenshot6: Creating Assignment1 folder and README file
-* screenshot7: Use of git commit and status in branch
-* screenshot8: Creating Screenshots folder and 2nd commit in branch
-* screenshot9: Creating requirements file and updating README and screenshots
-* screenshot10: Use of git add, commit, push, and status
-* screenshot11: Use of git push of branch to remote repository
-* screenshot12: Creating pull request
-* screenshot13: Merge of branch with main
-* screenshot14: Use of git pull to update local repository
- 
-
+a final update on the README file and in the screenshots folder and a final commit and push.
 
 
 ## Additional files
